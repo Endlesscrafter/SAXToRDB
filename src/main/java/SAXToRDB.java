@@ -30,7 +30,7 @@ public class SAXToRDB {
 
             xmlReader.setErrorHandler(artikelErrorHandler);
 
-            String url = new File("../ARTIKEL.XML").toURL().toString();
+            String url = new File("ARTIKEL.XML").toURL().toString();
 
             xmlReader.parse(url);
 
@@ -42,6 +42,10 @@ public class SAXToRDB {
             KundeErrorHandler kundeErrorHandler = new KundeErrorHandler();
 
             xmlReader.setErrorHandler(kundeErrorHandler);
+
+            String url2 = new File("UKUNDE.XML").toURL().toString();
+
+            xmlReader.parse(url2);
 
 
         } catch (ParserConfigurationException e) {

@@ -1,7 +1,12 @@
 import org.xml.sax.*;
 import org.xml.sax.helpers.AttributesImpl;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class KundeContentHandler implements ContentHandler {
+    private DatabaseManager databaseManager;
+
     /**
      * Receive an object for locating the origin of SAX document events.
      *
@@ -206,6 +211,27 @@ public class KundeContentHandler implements ContentHandler {
      */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
+
+        if(qName.equals("UPDKUNDE")){
+
+            String knr = atts.getValue("KNR");
+            String usp = atts.getValue("USP");
+            String dtusp = atts.getValue("DTUSP");
+            String uwert = atts.getValue("UWERT");
+
+            String update = "UPDATE KUNDE SET "+ usp +"=" +uwert+ " WHERE KNR=" +knr +";";
+
+            System.out.println(update);
+
+            /*try {
+                Connection connection = databaseManager.connect();
+
+                databaseManager.updateKunde(connection,update);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }*/
+        }
 
     }
 

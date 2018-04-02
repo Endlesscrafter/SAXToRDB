@@ -290,14 +290,14 @@ public class ArtikelContentHandler implements ContentHandler {
 
             System.out.println(insert);
 
-            try {
+            /*try {
                 Connection connection = databaseManager.connect();
 
                 databaseManager.insertArtikel(connection, insert);
 
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
+            }*/
 
         }
 
