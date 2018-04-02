@@ -1,6 +1,7 @@
 import oracle.jdbc.pool.OracleDataSource;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -83,5 +84,27 @@ public class DatabaseManager {
         }
 
         return iz;
+    }
+
+    public void selectKunde(Connection con, String select){
+
+        Statement stmt;
+        ResultSet rs;
+        try{
+
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(select);
+
+            while(rs.next()){
+                System.out.print(String.valueOf(rs.getInt("KNR")) + " ");
+                System.out.print(rs.getString("KNAME") +" ");
+                System.out.print(String.valueOf(rs.getInt("PLZ"))+ " ");
+                System.out.println(rs.getString("STRASSE") );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

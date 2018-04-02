@@ -223,11 +223,13 @@ public class KundeContentHandler implements ContentHandler {
 
             System.out.println(update);
 
+
+
             /*try {
                 Connection connection = databaseManager.connect();
-
+                databaseManager.selectKunde(connection, "SELECT * FROM KUNDE WHERE KNR="+knr);
                 databaseManager.updateKunde(connection,update);
-
+                databaseManager.selectKunde(connection, "SELECT * FROM KUNDE WHERE KNR="+knr);
             } catch (SQLException e) {
                 e.printStackTrace();
             }*/
