@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE kundenliste SYSTEM "kundenliste.dtd">
+<kundenliste>
+  <UPDKUNDE KNR="1" USP="ORT" DTUSP="varchar(30)" UWERT="BREMEN"/>
+  <UPDKUNDE KNR="2" USP="KNAME" DTUSP="varchar(30)" UWERT="FRANK"/>
+  <UPDKUNDE KNR="3" USP="ORT" DTUSP="varchar(30)" UWERT="BREMEN"/>
+  <UPDKUNDE KNR="4" USP="PLZ" DTUSP="integer" UWERT="60002"/>
+  <UPDKUNDE KNR="1" USP="PLZ" DTUSP="integer" UWERT="60001"/>
+</kundenliste>

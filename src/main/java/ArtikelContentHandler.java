@@ -364,7 +364,7 @@ public class ArtikelContentHandler implements ContentHandler {
                 wertseq +=  new String(ch, start, length) + ",";
                 break;
             case 4:
-                wertseq += "TO_DATE("+ "\'"+ new String(ch, start, length) + "\'" + ",\'DD-MM-YYYY\')";
+                wertseq += "TO_DATE("+ "\'"+ new String(ch, start, length) + "\'" + ",\'DD.MM.YYYY\')";
                 break;
             default: System.out.println("Fehler: Es wurden PCDATA-Characater Daten an einer Stelle gelesen, an denen sie nicht auftreten dürfen"); break;
         }
