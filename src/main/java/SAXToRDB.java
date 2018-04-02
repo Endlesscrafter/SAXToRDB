@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2018 Dominik Jahn, Philipp Kalytta
+ * All rights reserved. This program and the accompanying materials
+ * are private property protected by law.
+ * DO NOT DISTRIBUTE
+ *            T E C H N I S C H E   H O C H S C H U L E   K O E L N
+ */
+
 import org.xml.sax.*;
 
 import javax.xml.parsers.ParserConfigurationException;
