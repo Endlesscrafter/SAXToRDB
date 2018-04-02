@@ -15,6 +15,9 @@ public class SAXToRDB {
         factory.setValidating(true);
 
         try {
+
+
+            /*AUFGABE 1*/
             SAXParser saxParser = factory.newSAXParser();
 
             XMLReader xmlReader = saxParser.getXMLReader();
@@ -30,6 +33,16 @@ public class SAXToRDB {
             String url = new File("../ARTIKEL.XML").toURL().toString();
 
             xmlReader.parse(url);
+
+            /*AUFGABE 2*/
+            KundeContentHandler kundeContentHandler = new KundeContentHandler();
+
+            xmlReader.setContentHandler(kundeContentHandler);
+
+            KundeErrorHandler kundeErrorHandler = new KundeErrorHandler();
+
+            xmlReader.setErrorHandler(kundeErrorHandler);
+
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();

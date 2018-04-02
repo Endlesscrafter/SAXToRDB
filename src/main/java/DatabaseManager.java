@@ -62,4 +62,26 @@ public class DatabaseManager {
 
         return iz;
     }
+
+    public int updateKunde(Connection con, String insert){
+
+
+        Statement stmt;
+        int iz = -1;
+        System.out.println("Kommando : " + insert);
+
+        /* Kommando ausführen */
+        try{
+            stmt = con.createStatement();
+            iz   = stmt.executeUpdate(insert);
+            stmt.close();
+        }
+        catch(SQLException e){
+
+            System.out.println(e.getMessage());
+            System.out.println("SQL Exception wurde geworfen!");
+        }
+
+        return iz;
+    }
 }
