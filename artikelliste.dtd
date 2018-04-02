@@ -1,0 +1,12 @@
+<!ELEMENT artikelliste (ARTIKEL+)>
+<!ELEMENT ARTIKEL (artbez,mge,preis,steu,edat)> 
+<!ELEMENT artbez (#PCDATA)>
+<!ELEMENT mge (#PCDATA)>
+<!ELEMENT preis (#PCDATA)>
+<!ELEMENT steu (#PCDATA)>
+<!ELEMENT edat (#PCDATA)>
+<!ATTLIST artbez DT CDATA #REQUIRED>
+<!ATTLIST mge DT CDATA #REQUIRED>
+<!ATTLIST preis DT CDATA #REQUIRED>
+<!ATTLIST steu DT CDATA #REQUIRED>
+<!ATTLIST edat DT CDATA #REQUIRED>

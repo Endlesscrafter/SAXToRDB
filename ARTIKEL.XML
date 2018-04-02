@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE artikelliste SYSTEM "artikelliste.dtd">
+<artikelliste>
+  <ARTIKEL>
+    <artbez DT="varchar(30)">Banane</artbez>
+    <mge DT="varchar(5)">kg</mge>
+    <preis DT="decimal(12,2)">5.99</preis>
+    <steu DT="integer">7</steu>
+    <edat DT="date">02.04.2018</edat>
+  </ARTIKEL>
+  <ARTIKEL>
+    <artbez DT="varchar(30)">Bier</artbez>
+    <mge DT="varchar(5)">L</mge>
+    <preis DT="decimal(12,2)">0.99</preis>
+    <steu DT="integer">19</steu>
+    <edat DT="date">02.04.2018</edat>
+  </ARTIKEL>
+</artikelliste>
