@@ -286,18 +286,18 @@ public class ArtikelContentHandler implements ContentHandler {
             wertseq+=")";
 
                                                                                  //MUSS DAS SEMIKOLON HINTEN AN?
-            String insert = "INSERT INTO ARTIKEL " +spaltseq+ " VALUES " + wertseq + ";";
+            String insert = "INSERT INTO ARTIKEL " +spaltseq+ " VALUES " + wertseq/* + ";"*/;
 
             System.out.println(insert);
 
-            /*try {
+            try {
                 Connection connection = databaseManager.connect();
 
                 databaseManager.insertArtikel(connection, insert);
 
             } catch (SQLException e) {
                 e.printStackTrace();
-            }*/
+            }
 
         }
 
@@ -364,7 +364,7 @@ public class ArtikelContentHandler implements ContentHandler {
                 wertseq +=  new String(ch, start, length) + ",";
                 break;
             case 4:
-                wertseq += "TO_DATE("+ "\'"+ new String(ch, start, length) + "\'" + ",\'DD.MM.YYYY\')";
+                wertseq += "TO_DATE("+ "\'"+ new String(ch, start, length) + "\'" + ",\'YYYY-MM-DD\')";
                 break;
             default: System.out.println("Fehler: Es wurden PCDATA-Characater Daten an einer Stelle gelesen, an denen sie nicht auftreten dürfen"); break;
         }

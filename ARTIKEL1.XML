@@ -1,14 +1,14 @@
 ﻿<artikelliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:noNamespaceSchemaLocation="artikelliste.xsd">
     <ARTIKEL>
-        <artbez>PC-Maus</artbez>
+        <artbez>Laptop</artbez>
         <mge>stck</mge>
-        <preis>24.99</preis>
+        <preis>1999.99</preis>
         <steu>19</steu>
         <edat>2018-04-28</edat>
     </ARTIKEL>
     <ARTIKEL>
-        <artbez>Webcam</artbez>
+        <artbez>Lautsprecher</artbez>
         <mge>stck</mge>
         <preis>79.99</preis>
         <steu>19</steu>

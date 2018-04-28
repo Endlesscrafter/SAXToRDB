@@ -25,7 +25,7 @@ public class SAXToRDB {
         try {
 
 
-            /*AUFGABE 1*/
+            /*AUFGABE 1*/ /*
             SAXParser saxParser = factory.newSAXParser();
 
             XMLReader xmlReader = saxParser.getXMLReader();
@@ -40,9 +40,9 @@ public class SAXToRDB {
 
             String url = new File("ARTIKEL.XML").toURL().toString();
 
-            xmlReader.parse(url);
+            xmlReader.parse(url); */
 
-            /*AUFGABE 2*/
+            /*AUFGABE 2*/ /*
             KundeContentHandler kundeContentHandler = new KundeContentHandler();
 
             xmlReader.setContentHandler(kundeContentHandler);
@@ -53,8 +53,31 @@ public class SAXToRDB {
 
             String url2 = new File("UKUNDE.XML").toURL().toString();
 
-            xmlReader.parse(url2);
+            xmlReader.parse(url2); */
 
+            /*AUFGABE 4*/
+
+            factory.setNamespaceAware(true); //sonst fehler wegen noNamespaceSchemaLocation in ARTIKEL1.XML
+            SAXParser saxParser = factory.newSAXParser();
+
+            XMLReader xmlReader = saxParser.getXMLReader();
+
+            String schema = new File("artikelliste.xsd").toURL().toString();
+
+            // Features & Properties for parsing and validating XML files with XML Schema definition
+            xmlReader.setFeature("http://xml.org/sax/features/validation", true);
+            xmlReader.setFeature("http://apache.org/xml/features/validation/schema", true);
+            xmlReader.setFeature("http://apache.org/xml/features/validation/schema-full-checking",true);
+            xmlReader.setProperty("http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation", schema);
+
+            ArtikelContentHandler artikelContentHandler = new ArtikelContentHandler();
+            ArtikelErrorHandler artikelErrorHandler = new ArtikelErrorHandler();
+            xmlReader.setContentHandler(artikelContentHandler);
+            xmlReader.setErrorHandler(artikelErrorHandler);
+
+            String url3 = new File("ARTIKEL1.XML").toURL().toString();
+
+            xmlReader.parse(url3);
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
