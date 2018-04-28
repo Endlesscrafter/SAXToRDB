@@ -1,0 +1,17 @@
+﻿<artikelliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="artikelliste.xsd">
+    <ARTIKEL>
+        <artbez>PC-Maus</artbez>
+        <mge>stck</mge>
+        <preis>24.99</preis>
+        <steu>19</steu>
+        <edat>2018-04-28</edat>
+    </ARTIKEL>
+    <ARTIKEL>
+        <artbez>Webcam</artbez>
+        <mge>stck</mge>
+        <preis>79.99</preis>
+        <steu>19</steu>
+        <edat>2018-04-27</edat>
+    </ARTIKEL>
+</artikelliste>
