@@ -1,0 +1,21 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="artikelliste">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ARTIKEL" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="artbez" type="xsd:string"/>
+                            <xsd:element name="mge" type="xsd:string"/>
+                            <xsd:element name="preis" type="xsd:decimal"/>
+                            <xsd:element name="steu" type="xsd:integer"/>
+                            <xsd:element name="edat" type="xsd:date"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
