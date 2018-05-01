@@ -2,6 +2,7 @@ import org.xml.sax.*;
 import org.xml.sax.helpers.AttributesImpl;
 
 import javax.xml.crypto.Data;
+import javax.xml.validation.TypeInfoProvider;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -10,6 +11,11 @@ public class ArtikelContentHandler implements ContentHandler {
     int spaltenid;
     String spaltseq, wertseq;
     DatabaseManager databaseManager = new DatabaseManager();
+    private final TypeInfoProvider typeInfoProvider;
+
+    public ArtikelContentHandler(TypeInfoProvider typeInfoProvider){
+        this.typeInfoProvider = typeInfoProvider;
+    }
 
     /**
      * Receive an object for locating the origin of SAX document events.
@@ -215,6 +221,22 @@ public class ArtikelContentHandler implements ContentHandler {
      */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
+
+        int i;
+        String gVl = null;
+        String gTy = null;
+        String gNam = null;
+        String gVl4;
+        AttributesImpl a1 = new AttributesImpl(atts);
+        int l1 = a1.getLength();
+
+        for (i = 0; i < l1; i++) {
+            gVl = a1.getValue(i);
+            gTy = a1.getType(i);
+            gNam = a1.getQName(i);
+
+        }
+        System.out.println( qName + "  Datentyp: "+ typeInfoProvider.getElementTypeInfo().getTypeName()) ;
 
         if(qName.equals("ARTIKEL")){
 
