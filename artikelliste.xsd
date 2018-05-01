@@ -7,7 +7,7 @@
                         <xsd:sequence>
                             <xsd:element name="artbez" type="xsd:string"/>
                             <xsd:element name="mge" type="xsd:string"/>
-                            <xsd:element name="preis" type="restrictedDecimal"></xsd:element>
+                            <xsd:element name="preis" type="restrictedDecimal"/>
                             <xsd:element name="steu" type="xsd:integer"/>
                             <xsd:element name="edat" type="xsd:date"/>
                         </xsd:sequence>

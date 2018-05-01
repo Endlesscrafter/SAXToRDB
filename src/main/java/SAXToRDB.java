@@ -62,7 +62,9 @@ public class SAXToRDB {
 
             /*AUFGABE 4*/
 
-            factory.setNamespaceAware(true); //sonst fehler wegen noNamespaceSchemaLocation in ARTIKEL1.XML
+            SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+            Schema schema = schemaFactory.newSchema(new File("artikelliste.xsd"));
+            ValidatorHandler validatorHandler = schema.newValidatorHandler();
             SAXParser saxParser = factory.newSAXParser();
 
 
@@ -70,9 +72,6 @@ public class SAXToRDB {
             String schemaxsd = new File("artikelliste.xsd").toURL().toString();
 
 
-            SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-            Schema schema = schemaFactory.newSchema(new File("artikelliste.xsd"));
-            ValidatorHandler validatorHandler = schema.newValidatorHandler();
 
             ArtikelContentHandler artikelContentHandler = new ArtikelContentHandler(validatorHandler.getTypeInfoProvider());
             validatorHandler.setContentHandler(artikelContentHandler);
