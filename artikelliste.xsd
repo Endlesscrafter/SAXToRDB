@@ -1,5 +1,4 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="artikelliste.xsd" xmlns="artikelliste.xsd">
     <xsd:element name="artikelliste">
         <xsd:complexType>
             <xsd:sequence>
@@ -8,14 +7,7 @@
                         <xsd:sequence>
                             <xsd:element name="artbez" type="xsd:string"/>
                             <xsd:element name="mge" type="xsd:string"/>
-                            <xsd:element name="preis">
-                                <xsd:simpleType>
-                                    <xsd:restriction base="xsd:decimal">
-                                    <xsd:totalDigits value="10" />
-                                    <xsd:fractionDigits value="2" />
-                                    </xsd:restriction>
-                                </xsd:simpleType>
-                            </xsd:element>
+                            <xsd:element name="preis" type="restrictedDecimal"></xsd:element>
                             <xsd:element name="steu" type="xsd:integer"/>
                             <xsd:element name="edat" type="xsd:date"/>
                         </xsd:sequence>
@@ -24,5 +16,10 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-
+    <xsd:simpleType name="restrictedDecimal">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10" />
+            <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+    </xsd:simpleType>
 </xsd:schema>
