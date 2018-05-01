@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ArtikelContentHandler implements ContentHandler {
 
-    int spaltenid;
+    String spaltenid;
     String spaltseq, wertseq;
     DatabaseManager databaseManager = new DatabaseManager();
     private final TypeInfoProvider typeInfoProvider;
@@ -226,7 +226,7 @@ public class ArtikelContentHandler implements ContentHandler {
 
         if(qName.equals("ARTIKEL")){
 
-            spaltenid = -1;
+            spaltenid = null;
             spaltseq="(";
             wertseq="(";
 
@@ -236,31 +236,31 @@ public class ArtikelContentHandler implements ContentHandler {
 
             atts.getType("artbez");
 
-            spaltenid = 0;
+            spaltenid = typeInfoProvider.getElementTypeInfo().getTypeName();
             spaltseq += qName;
 
         }
         if(qName.equals("mge")) {
 
-            spaltenid = 1;
+            spaltenid = typeInfoProvider.getElementTypeInfo().getTypeName();
             spaltseq += "," + qName;
 
         }
         if(qName.equals("preis")) {
 
-            spaltenid = 2;
+            spaltenid = typeInfoProvider.getElementTypeInfo().getTypeName();
             spaltseq += "," + qName;
 
         }
         if(qName.equals("steu")) {
 
-            spaltenid = 3;
+            spaltenid = typeInfoProvider.getElementTypeInfo().getTypeName();
             spaltseq += "," + qName;
 
         }
         if(qName.equals("edat")) {
 
-            spaltenid = 4;
+            spaltenid = typeInfoProvider.getElementTypeInfo().getTypeName();
             spaltseq += "," + qName;
 
         }
@@ -361,19 +361,16 @@ public class ArtikelContentHandler implements ContentHandler {
 
         switch (spaltenid){
 
-            case 0:
+            case "string":
                 wertseq += "\'"+ new String(ch, start, length) + "\'" + ",";
                 break;
-            case 1:
-                wertseq += "\'"+ new String(ch, start, length) + "\'" + ",";
-                break;
-            case 2:
+            case "restrictedDecimal":
                 wertseq +=  new String(ch, start, length) + ",";
                 break;
-            case 3:
+            case "integer":
                 wertseq +=  new String(ch, start, length) + ",";
                 break;
-            case 4:
+            case "date":
                 wertseq += "TO_DATE("+ "\'"+ new String(ch, start, length) + "\'" + ",\'YYYY-MM-DD\')";
                 break;
             default: System.out.println("Fehler: Es wurden PCDATA-Characater Daten an einer Stelle gelesen, an denen sie nicht auftreten dürfen"); break;
