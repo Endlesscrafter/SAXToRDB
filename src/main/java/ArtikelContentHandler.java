@@ -226,6 +226,8 @@ public class ArtikelContentHandler implements ContentHandler {
         }
         if(qName.equals("artbez")) {
 
+            atts.getType("artbez");
+
             spaltenid = 0;
             spaltseq += qName;
 
