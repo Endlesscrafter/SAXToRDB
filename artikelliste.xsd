@@ -1,4 +1,4 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="artikelliste.xsd" xmlns="artikelliste.xsd">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="artikelliste.xsd" xmlns="artikelliste.xsd" elementFormDefault="qualified">
     <xsd:element name="artikelliste">
         <xsd:complexType>
             <xsd:sequence>
