@@ -1,0 +1,25 @@
+﻿<LAGERAT xmlns="lagerat.xsd">
+  <lagernummer>5</lagernummer>
+  <lagerort>Hamburg</lagerort>
+  <lagerpostleitzahl>20146</lagerpostleitzahl>
+  <ARTIKELLISTE>
+    <LAGERPOSITION>
+      <menge>15</menge>
+      <artikelnummer>154</artikelnummer>
+      <artikelbezeichnung>Alkohol</artikelbezeichnung>
+      <mengeneinheit>L</mengeneinheit>
+      <preis>0.99</preis>
+      <steuersatz>19</steuersatz>
+      <einlieferungsdatum>2018-04-02</einlieferungsdatum>
+  </LAGERPOSITION>
+  <LAGERPOSITION>
+      <menge>33</menge>
+      <artikelnummer>128</artikelnummer>
+      <artikelbezeichnung>Haus</artikelbezeichnung>
+      <mengeneinheit>stck</mengeneinheit>
+      <preis>6000.00</preis>
+      <steuersatz>19</steuersatz>
+      <einlieferungsdatum>2017-11-23</einlieferungsdatum>
+  </LAGERPOSITION>
+  </ARTIKELLISTE>
+</LAGERAT>

@@ -1,0 +1,37 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="lagerat.xsd" xmlns="lagerat.xsd" elementFormDefault="qualified">
+    <xsd:element name="LAGERAT">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="lagernummer" type="xsd:integer"/>
+                <xsd:element name="lagerort" type="xsd:string"/>
+                <xsd:element name="lagerpostleitzahl" type="xsd:integer"/>
+                <xsd:element name="ARTIKELLISTE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="LAGERPOSITION" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="menge" type="xsd:string"/>
+                                        <xsd:element name="artikelnummer" type="xsd:integer"/>
+                                        <xsd:element name="artikelbezeichnung" type="xsd:string"/>
+                                        <xsd:element name="mengeneinheit" type="xsd:string"/>
+                                        <xsd:element name="preis" type="restrictedDecimal"/>
+                                        <xsd:element name="steuersatz" type="xsd:integer"/>
+                                        <xsd:element name="einlieferungsdatum" type="xsd:date"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="restrictedDecimal">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10" />
+            <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
