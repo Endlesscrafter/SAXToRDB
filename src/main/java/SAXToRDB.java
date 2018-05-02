@@ -61,7 +61,7 @@ public class SAXToRDB {
             xmlReader.parse(url2); */
 
             /*AUFGABE 4*/
-
+/*
             SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
             Schema schema = schemaFactory.newSchema(new File("artikelliste.xsd"));
             ValidatorHandler validatorHandler = schema.newValidatorHandler();
@@ -94,7 +94,42 @@ public class SAXToRDB {
 
             String url3 = new File("ARTIKEL1.XML").toURL().toString();
 
-            xmlReader.parse(url3);
+            xmlReader.parse(url3);*/
+
+            /*AUFGABE 5*/
+
+            SchemaFactory schemaFactory2 = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+            Schema schema2 = schemaFactory2.newSchema(new File("lagerat.xsd"));
+            ValidatorHandler validatorHandler2 = schema2.newValidatorHandler();
+            SAXParser saxParser2 = factory.newSAXParser();
+
+
+            String schemaxsd2 = new File("lagerat.xsd").toURL().toString();
+
+
+            LagerContentHandler lagerContentHandler = new LagerContentHandler(validatorHandler2.getTypeInfoProvider());
+            validatorHandler2.setContentHandler(lagerContentHandler);
+
+            ArtikelErrorHandler artikelErrorHandler2 = new ArtikelErrorHandler();
+            validatorHandler2.setErrorHandler(artikelErrorHandler2);
+            //xmlReader.setContentHandler(artikelContentHandler);
+            //xmlReader.setErrorHandler(artikelErrorHandler);
+
+            //XMLReader xmlReader = saxParser.getXMLReader();
+            XMLReader xmlReader2 = XMLReaderFactory.createXMLReader();
+
+            // Features & Properties for parsing and validating XML files with XML Schema definition
+            xmlReader2.setFeature("http://xml.org/sax/features/validation", true);
+            xmlReader2.setFeature("http://apache.org/xml/features/validation/schema", true);
+            xmlReader2.setFeature("http://apache.org/xml/features/validation/schema-full-checking",true);
+            xmlReader2.setProperty("http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation", schemaxsd2);
+
+            xmlReader2.setContentHandler(validatorHandler2);
+
+            String url4 = new File("LAGERAT.XML").toURL().toString();
+
+            xmlReader2.parse(url4);
+
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
