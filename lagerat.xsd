@@ -11,7 +11,7 @@
                             <xsd:element name="LAGERPOSITION" maxOccurs="unbounded">
                                 <xsd:complexType>
                                     <xsd:sequence>
-                                        <xsd:element name="menge" type="xsd:string"/>
+                                        <xsd:element name="menge" type="xsd:integer"/>
                                         <xsd:element name="artikelnummer" type="xsd:integer"/>
                                         <xsd:element name="artikelbezeichnung" type="xsd:string"/>
                                         <xsd:element name="mengeneinheit" type="xsd:string"/>
