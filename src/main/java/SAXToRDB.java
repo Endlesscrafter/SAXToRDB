@@ -16,9 +16,13 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.ValidatorHandler;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class SAXToRDB {
 
@@ -129,6 +133,28 @@ public class SAXToRDB {
             String url4 = new File("LAGERAT.XML").toURL().toString();
 
             xmlReader2.parse(url4);
+
+
+            int lagernummer;
+            DatabaseManager databaseManager = new DatabaseManager();
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+            while(true){
+                System.out.println("Bitte Lagernummer eingeben (0 zum beenden) : ");
+                lagernummer = Integer.parseInt(in.readLine());
+
+                if(lagernummer == 0)  System.exit(0);
+
+                String select = "SELECT lager.*, artikel.* FROM LAGERAT lager, ARTIKEL artikel, TABLE(lager.ARTIKELLISTE) liste WHERE lager.LAGERNUMMER=" + lagernummer + " AND artikel.ARTNR=liste.artikelnummer";
+
+                try{
+                    Connection connection = databaseManager.connect();
+                    databaseManager.readLager(connection, select);
+                } catch(SQLException e){
+                    e.printStackTrace();
+                    System.exit(1);
+                }
+            }
 
 
         } catch (ParserConfigurationException e) {
