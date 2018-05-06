@@ -1,9 +1,6 @@
 import oracle.jdbc.pool.OracleDataSource;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseManager {
 
@@ -105,6 +102,50 @@ public class DatabaseManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void readLager(Connection con, String select){
+
+        Statement stmt;
+        ResultSet rs;
+
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(select);
+
+            boolean first = true;
+            int artiekl_counter = 1;
+
+            while(rs.next()){
+                if(first){
+                    System.out.println("Lagernummer       : " + String.valueOf(rs.getInt("LAGERNUMMER")));
+                    System.out.println("Lagerort          : " + rs.getString("LAGERORT"));
+                    System.out.println("Lagerpostleitzahl : " + String.valueOf(rs.getInt("LAGERPOSTLEITZAHL")));
+                    first = false;
+                }
+
+                System.out.println();
+                System.out.println("\tArtikel " + artiekl_counter + " :");
+                System.out.println();
+                System.out.println("\tArtikelnummer      : " + String.valueOf(rs.getInt("ARTNR")));
+                System.out.println("\tArtikelbezeichnung : " + rs.getString("ARTBEZ"));
+                System.out.println("\tMengeneinheit      : " + rs.getString("MGE"));
+                System.out.println("\tSteuersatz         : " + String.valueOf(rs.getInt("STEU")));
+                Date date = rs.getDate("EDAT");
+                if(date == null)
+                    System.out.println("\tEinlieferungsdatum : Keine Angabe");
+                else
+                    System.out.println("\tEinlieferungsdatum : " + date.toString());
+                artiekl_counter++;
+            }
+            System.out.println();
+            System.out.println();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
 
     }
 }
